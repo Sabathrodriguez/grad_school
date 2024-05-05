@@ -23,6 +23,7 @@ class ItemToPurchase:
     # prints item total cost when multiplited by quantity
     def print_item_cost(self):
         print("{:s} {:d} @ ${:.2f} = ${}".format(self.item_name, self.item_quantity, self.item_price, self.item_price * self.item_quantity))
+print("portfolio milestone 1----------------")
 
 if (input("Want to run portfolio milestone 1? (y/n):") == "y"):
     # In the main section of your code, prompt the user for two items and create two objects of the ItemToPurchase class.
@@ -133,10 +134,9 @@ class ShoppingCart:
         for item in self.cart_items:
             if item.item_name == itemToPurchase.item_name:
                 # check if itemtopurchase has default values    
-                if itemToPurchase.item_price != 0.0 and itemToPurchase.item_name != "none" and itemToPurchase.quantity != 0:
-                    item.item_price = itemToPurchase.item_price
+                if itemToPurchase.item_name != "none" and itemToPurchase.item_quantity != 0:
                     item.item_quantity = itemToPurchase.item_quantity
-                return
+                    return
         print("Item not found in cart. Nothing modified.")
     
     # get number of items in cart
@@ -210,7 +210,6 @@ def print_menu(shoppingCart):
                 # modify item
                 item = ItemToPurchase()
                 item.item_name = input("Enter the item name:")
-                item.item_price = float(input("Enter the new price:"))
                 item.item_quantity = int(input("Enter the new quantity:"))
                 shoppingCart.modify_item(item)
             elif user_input == "i":
@@ -225,12 +224,15 @@ def print_menu(shoppingCart):
                 print()
             elif user_input == "q":
                 break
-print("portfolio milestone 2----------------")
+print("portfolio milestone 3----------------")
 
 try:
     # create shopping cart
     username = input("Enter your name: (such as \"John\")")
     todaysDate = input("Enter the current date: (such as \"April 1, 2020\")")
+
+    print("Customer name: " + username)
+    print("Today's date: " + todaysDate)
 
     # if username or todaysDate is empty, create shopping cart with default values
     if len(username) > 0 and len(todaysDate) > 0:
@@ -241,3 +243,5 @@ try:
     print_menu(shoppingCart)
 except:
     print("Error, please try again.")
+
+
